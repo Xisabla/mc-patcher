@@ -1,7 +1,7 @@
-const React = require('react')
-const { render } = require('react-dom')
+import React from 'react'
+import { render } from 'react-dom'
 
-require('./App.scss')
+import './App.scss'
 
 class App extends React.Component {
     render() {

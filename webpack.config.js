@@ -4,14 +4,16 @@ const path = require('path')
 module.exports = {
     mode: 'development',
 
-    entry: './src/index.js',
+    entry: './src/index.tsx',
 
     context: path.resolve(__dirname),
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/renderer.js'
+        filename: 'js/index.js'
     },
+
+    devtool: 'source-map',
 
     module: {
         rules: [
@@ -30,10 +32,23 @@ module.exports = {
                 enforce: 'pre',
                 include: [path.resolve(__dirname, 'src')]
             },
+            // Typescript: ts-loader
+            {
+                test: /\.tsx?$/,
+                use: [{ loader: 'ts-loader' }],
+                exclude: /node_modules/
+            },
             // Js/React: babel-loader
             {
                 test: /\.(js|jsx)$/i,
-                use: [{ loader: 'babel-loader' }]
+                use: [
+                    {
+                        loader: 'source-map-loader'
+                    },
+                    {
+                        loader: 'babel-loader'
+                    }
+                ]
             },
             // CSS: Extract
             {
@@ -44,21 +59,31 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    { loader: MiniCssExtractPlugin.loader },
-                    { loader: 'css-loader' },
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
                             plugins: () => [require('autoprefixer')]
                         }
                     },
-                    { loader: 'sass-loader' }
+                    {
+                        loader: 'sass-loader'
+                    }
                 ]
             },
             // Fonts: file-loader
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
-                use: [{ loader: 'file-loader' }]
+                use: [
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
             },
             // Images: url-loader
             {
