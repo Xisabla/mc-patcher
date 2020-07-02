@@ -5,10 +5,24 @@ module.exports = {
         es6: true
     },
 
+    // React
+    settings: {
+        react: {
+            version: 'detect'
+        }
+    },
+
+    // Sort requires
     plugins: ['sort-requires'],
 
-    extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+    // Main rules
+    extends: [
+        'eslint:recommended',
+        'plugin:prettier/recommended',
+        'plugin:react/recommended'
+    ],
 
+    // Sort require rules
     rules: {
         'sort-requires/sort-requires': 2
     }

@@ -3,7 +3,7 @@
     "productName": "mc-patcher",
     "copyright": "Copyright ©2020 MIQUET Gautier",
     "directories": {
-        "output": "dist"
+        "output": "build"
     },
     "win": {
         "artifactName": "${productName}_${version}_setup.${ext}"
