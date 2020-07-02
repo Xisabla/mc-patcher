@@ -35,5 +35,7 @@ jobs:
                 npm run build
                 npm run test --if-present
             - name: Package
+              env:
+                  GH_TOKEN:  ${{ secrets.GH_TOKEN }}
               run: |
                 npm run package
