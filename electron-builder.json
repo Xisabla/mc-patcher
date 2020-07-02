@@ -1,0 +1,11 @@
+{
+    "appId": "Xisabla.mc-patcher",
+    "productName": "mc-patcher",
+    "copyright": "Copyright ©2020 MIQUET Gautier",
+    "directories": {
+        "output": "dist"
+    },
+    "win": {
+        "artifactName": "${productName}_${version}_setup.${ext}"
+    }
+}
