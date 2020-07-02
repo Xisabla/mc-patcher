@@ -10,16 +10,20 @@ on:
 
 jobs:
     build:
-        strategy:
-            matrix:
-                os: [ windows-latest, ubuntu-latest ]
-        runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout master
               uses: actions/checkout@master
               with:
                 persist-credentials: false
                 fetch-depth: 0
+            - name: Install Wine
+              run: |
+                  sudo dpkg --add-architecture i386
+                    wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+                    sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport --yes
+                    sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main" --yes
+                    sudo apt install --install-recommends winehq-stable --yes
             - name: Use Node.js 12
               uses: actions/setup-node@v1
               with:
