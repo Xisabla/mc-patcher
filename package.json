@@ -1,6 +1,6 @@
 {
   "name": "mc-patcher",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A graphic tool to patch minecraft instances",
   "main": "main.js",
   "scripts": {
