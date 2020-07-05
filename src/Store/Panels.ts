@@ -35,7 +35,7 @@ export class PanelStore {
      * @param id The new current panel
      * @returns true if the panel exists, false otherwise
      */
-    @action setCurrent(id = 'none'): boolean {
+    @action public setCurrent(id = 'none'): boolean {
         const panel = this.getPanel(id)
 
         if (panel) {
@@ -52,7 +52,7 @@ export class PanelStore {
      * @param id Panel id
      * @returns false if the panel already exists, true otherwise
      */
-    @action add(id: string): boolean {
+    @action public add(id: string): boolean {
         if (this.getPanel(id)) return false
 
         this.panels.push(id)
