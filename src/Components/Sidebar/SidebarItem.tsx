@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { ListGroupItem } from 'react-bootstrap'
 
 import { PanelStore } from '../../Store'
@@ -7,6 +7,8 @@ import { PanelStore } from '../../Store'
 export interface SidebarItemProps {
     /** Panels Store */
     panels: PanelStore
+    /** Content of the SidebarItem */
+    children: ReactNode
     /** ID of the Panel triggered by the SidebarItem */
     panelId?: string
     /** Set on true to force the SidebarItem to trigger the Panel on initial render */
