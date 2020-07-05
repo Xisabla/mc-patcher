@@ -14,10 +14,6 @@ export interface SidebarProps {
 
 @observer
 export class Sidebar extends React.Component<SidebarProps> {
-    constructor(props: SidebarProps) {
-        super(props)
-    }
-
     render(): JSX.Element {
         const { panels } = this.props
         const { version } = this.props.app
