@@ -5,6 +5,9 @@ module.exports = {
         es6: true
     },
 
+    // Typescript parser
+    parser: '@typescript-eslint/parser',
+
     // React
     settings: {
         react: {
@@ -13,17 +16,21 @@ module.exports = {
     },
 
     // Sort requires
-    plugins: ['sort-requires'],
+    plugins: ['@typescript-eslint', 'simple-import-sort', 'sort-requires'],
 
     // Main rules
     extends: [
         'eslint:recommended',
         'plugin:prettier/recommended',
-        'plugin:react/recommended'
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended'
     ],
 
     // Sort require rules
     rules: {
-        'sort-requires/sort-requires': 2
+        'sort-imports': 'off',
+        'import/order': 'off',
+        'sort-requires/sort-requires': 2,
+        'simple-import-sort/sort': 'error'
     }
 }
