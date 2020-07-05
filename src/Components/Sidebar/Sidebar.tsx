@@ -14,24 +14,18 @@ export interface SidebarProps {
 
 @observer
 export class Sidebar extends React.Component<SidebarProps> {
-    render(): JSX.Element {
+    public render(): JSX.Element {
         const { panels } = this.props
         const { version } = this.props.app
 
         return (
             <Col className="sidebar" md={2}>
                 <ListGroup variant="flush">
-                    <SidebarItem panels={panels} panelId="patcher" default>
+                    <SidebarItem panels={panels} panelId="patcher">
                         Patcher
                     </SidebarItem>
                     <SidebarItem panels={panels} panelId="settings">
                         Settings
-                    </SidebarItem>
-                    <SidebarItem panels={panels} panelId="test">
-                        Test
-                    </SidebarItem>
-                    <SidebarItem panels={panels} panelId="test2">
-                        Test #2
                     </SidebarItem>
                 </ListGroup>
                 <div className="version">mc-patcher v{version}</div>

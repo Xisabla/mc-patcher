@@ -11,8 +11,6 @@ export interface SidebarItemProps {
     children: ReactNode
     /** ID of the Panel triggered by the SidebarItem */
     panelId?: string
-    /** Set on true to force the SidebarItem to trigger the Panel on initial render */
-    default?: boolean
 }
 
 @observer
@@ -21,10 +19,6 @@ export class SidebarItem extends React.Component<SidebarItemProps> {
         super(props)
 
         this.click = this.click.bind(this)
-
-        if (props.default) {
-            this.setCurrentPanel()
-        }
     }
 
     /**
