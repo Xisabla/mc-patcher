@@ -11,8 +11,8 @@ export interface PanelContainerProps {
 
 import './PanelContainer.scss'
 
+import { Patcher } from '../Patcher'
 import { Panel } from './Panel'
-import { PatcherPanel } from './PatcherPanel'
 
 export class PanelContainer extends React.Component<PanelContainerProps> {
     public render(): JSX.Element {
@@ -20,7 +20,7 @@ export class PanelContainer extends React.Component<PanelContainerProps> {
 
         return (
             <Col className="panel-container" md={10}>
-                <PatcherPanel panels={panels} />
+                <Patcher panels={panels} />
                 <Panel panels={panels} id="settings">
                     <h2>Settings</h2>
                 </Panel>
